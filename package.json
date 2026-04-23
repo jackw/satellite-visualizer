@@ -3,8 +3,8 @@
   "version": "1.8.0",
   "description": "3D satellite visualization panel.",
   "scripts": {
-    "build": "webpack -c ./.config/webpack/webpack.config.ts --env production",
-    "dev": "webpack -w -c ./.config/webpack/webpack.config.ts --env development",
+    "build": "webpack -c ./webpack.config.ts --env production",
+    "dev": "webpack -w -c ./webpack.config.ts --env development",
     "test": "jest --watch --onlyChanged",
     "test:ci": "jest --passWithNoTests --maxWorkers 4",
     "typecheck": "tsc --noEmit",
@@ -84,10 +84,11 @@
     "@grafana/runtime": "^12.2.0",
     "@grafana/schema": "^12.2.0",
     "@grafana/ui": "^12.2.0",
-    "cesium": "^1.112.0",
+    "@types/webpack-env": "^1.18.8",
+    "cesium": "^1.140.0",
     "react": "^18.3.0",
     "react-dom": "^18.3.0",
-    "resium": "^1.17.2",
+    "resium": "^1.21.0",
     "tslib": "2.5.3"
   },
   "packageManager": "npm@9.8.1"
