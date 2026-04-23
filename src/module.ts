@@ -1,3 +1,4 @@
+import 'cesiumBaseUrl';
 import { PanelPlugin } from '@grafana/data';
 import { SimpleOptions, AssetMode, CoordinatesType } from './types';
 import { SatelliteVisualizer } from './components/SatelliteVisualizer';

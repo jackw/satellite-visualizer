@@ -1,3 +1,9 @@
+declare global {
+  interface Window {
+    CESIUM_BASE_URL: string;
+  }
+}
+
 export interface SimpleOptions {
   assetMode: AssetMode;
   coordinatesType: CoordinatesType;
