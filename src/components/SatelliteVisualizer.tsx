@@ -150,7 +150,8 @@ export const SatelliteVisualizer: React.FC<Props> = ({
             break;
           case CoordinatesType.CartesianInertial:
             x_ECEF = Matrix3.multiplyByVector(
-              Matrix3.transpose(DCM_ECI_ECEF, new Matrix3()),
+              // TODO: don't use ! - handle case when DCM is not available
+              Matrix3.transpose(DCM_ECI_ECEF!, new Matrix3()),
               new Cartesian3(
                 dataFrame.fields[1].values[i],
                 dataFrame.fields[2].values[i],
@@ -177,7 +178,8 @@ export const SatelliteVisualizer: React.FC<Props> = ({
 
         positionProperty.addSample(time, x_ECEF);
 
-        const q_ECI_ECEF = Quaternion.fromRotationMatrix(DCM_ECI_ECEF);
+        // TODO: don't use ! - handle case when DCM is not available
+        const q_ECI_ECEF = Quaternion.fromRotationMatrix(DCM_ECI_ECEF!);
         const q_ECEF_ECI = Quaternion.conjugate(q_ECI_ECEF, new Quaternion());
         const q_B_ECEF = Quaternion.multiply(q_ECEF_ECI, q_B_ECI, new Quaternion());
 
