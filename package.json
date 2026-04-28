@@ -12,8 +12,8 @@
     "lint:fix": "npm run lint -- --fix && prettier --write --list-different .",
     "format": "npx prettier . --check",
     "format:fix": "npx prettier . --write",
-    "e2e": "npm exec cypress install && npm exec grafana-e2e run",
-    "e2e:update": "npm exec cypress install && npm exec grafana-e2e run --update-screenshots",
+    "e2e": "playwright test",
+    "e2e:update": "playwright test --update-snapshots",
     "server": "docker compose up --build",
     "sign": "npx --yes @grafana/sign-plugin@latest"
   },
