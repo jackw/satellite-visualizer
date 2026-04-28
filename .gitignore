@@ -34,3 +34,6 @@ e2e-results/
 .vscode
 
 .eslintcache
+playwright/.auth/
+playwright-report/
+test-results/
