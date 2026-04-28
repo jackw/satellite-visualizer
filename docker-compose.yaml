@@ -6,7 +6,7 @@ services:
     platform: 'linux/amd64'
     build:
       args:
-        grafana_version: ${GRAFANA_VERSION:-10.0.3}
+        grafana_version: ${GRAFANA_VERSION:-11.6.11}
     volumes:
       - ./dist:/var/lib/grafana/plugins/satellite-visualizer-panel
       - ./config:/etc/grafana
