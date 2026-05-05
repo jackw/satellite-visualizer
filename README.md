@@ -2,7 +2,7 @@
 
 A satellite visualization panel plugin for Grafana based on [CesiumJS](https://cesium.com/platform/cesiumjs/).
 
-![screenshot.png](./src/img/screenshot.png)
+![screenshot.png](https://raw.githubusercontent.com/lucas-bremond/satellite-visualizer/main/src/img/screenshot.png)
 
 ## Settings
 
@@ -21,7 +21,7 @@ This plugin needs a data series with 8 columns:
 | 4        | Altitude (`m`) / z_ECI (`m`) / z_ECEF (`m`)             |
 | 5-8      | Orientation in inertial frame (`x, y, z, s` quaternion) |
 
-![data.png](./src/img/data.png)
+![data.png](https://raw.githubusercontent.com/lucas-bremond/satellite-visualizer/main/src/img/data.png)
 
 ## Development
 
