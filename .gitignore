@@ -31,5 +31,9 @@ e2e-results/
 
 # Editor
 .idea
+.vscode
 
 .eslintcache
+playwright/.auth/
+playwright-report/
+test-results/

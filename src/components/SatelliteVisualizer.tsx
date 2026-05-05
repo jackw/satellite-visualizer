@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { PanelProps, DataHoverEvent, LegacyGraphHoverEvent } from '@grafana/data';
 import { AssetMode, SimpleOptions, CoordinatesType } from 'types';
-import { coalesceToArray } from 'utilities';
 import { css, cx } from '@emotion/css';
 import { useStyles2 } from '@grafana/ui';
 
@@ -22,6 +21,7 @@ import {
   Cartesian2,
   Matrix3,
 } from 'cesium';
+import { TEST_IDS } from '../constants';
 
 declare const CESIUM_BASE_URL: string;
 
@@ -108,7 +108,7 @@ export const SatelliteVisualizer: React.FC<Props> = ({
         throw new Error(`Invalid number of fields [${dataFrame.fields.length}] in data frame.`);
       }
 
-      let timeFieldValues = coalesceToArray(dataFrame.fields[0].values);
+      let timeFieldValues = dataFrame.fields[0].values;
 
       const startTimestamp: number | null = timeFieldValues[0] ?? null;
       const endTimestamp: number | null = timeFieldValues.at(-1) ?? null;
@@ -136,7 +136,7 @@ export const SatelliteVisualizer: React.FC<Props> = ({
       const orientationProperty = new SampledProperty(Quaternion);
 
       for (let i = 0; i < dataFrame.fields[1].values.length; i++) {
-        const time = JulianDate.fromDate(new Date(coalesceToArray(dataFrame.fields[0].values)[i]));
+        const time = JulianDate.fromDate(new Date(dataFrame.fields[0].values[i]));
 
         const DCM_ECI_ECEF = Transforms.computeFixedToIcrfMatrix(time);
 
@@ -144,41 +144,43 @@ export const SatelliteVisualizer: React.FC<Props> = ({
         switch (options.coordinatesType) {
           case CoordinatesType.CartesianFixed:
             x_ECEF = new Cartesian3(
-              coalesceToArray(dataFrame.fields[1].values)[i],
-              coalesceToArray(dataFrame.fields[2].values)[i],
-              coalesceToArray(dataFrame.fields[3].values)[i]
+              dataFrame.fields[1].values[i],
+              dataFrame.fields[2].values[i],
+              dataFrame.fields[3].values[i]
             );
             break;
           case CoordinatesType.CartesianInertial:
             x_ECEF = Matrix3.multiplyByVector(
-              Matrix3.transpose(DCM_ECI_ECEF, new Matrix3()),
+              // TODO: don't use ! - handle case when DCM is not available
+              Matrix3.transpose(DCM_ECI_ECEF!, new Matrix3()),
               new Cartesian3(
-                coalesceToArray(dataFrame.fields[1].values)[i],
-                coalesceToArray(dataFrame.fields[2].values)[i],
-                coalesceToArray(dataFrame.fields[3].values)[i]
+                dataFrame.fields[1].values[i],
+                dataFrame.fields[2].values[i],
+                dataFrame.fields[3].values[i]
               ),
               new Cartesian3()
             );
             break;
           default:
             x_ECEF = Cartesian3.fromDegrees(
-              coalesceToArray(dataFrame.fields[1].values)[i],
-              coalesceToArray(dataFrame.fields[2].values)[i],
-              coalesceToArray(dataFrame.fields[3].values)[i]
+              dataFrame.fields[1].values[i],
+              dataFrame.fields[2].values[i],
+              dataFrame.fields[3].values[i]
             );
             break;
         }
 
         const q_B_ECI = new Quaternion(
-          coalesceToArray(dataFrame.fields[4].values)[i],
-          coalesceToArray(dataFrame.fields[5].values)[i],
-          coalesceToArray(dataFrame.fields[6].values)[i],
-          coalesceToArray(dataFrame.fields[7].values)[i]
+          dataFrame.fields[4].values[i],
+          dataFrame.fields[5].values[i],
+          dataFrame.fields[6].values[i],
+          dataFrame.fields[7].values[i]
         );
 
         positionProperty.addSample(time, x_ECEF);
 
-        const q_ECI_ECEF = Quaternion.fromRotationMatrix(DCM_ECI_ECEF);
+        // TODO: don't use ! - handle case when DCM is not available
+        const q_ECI_ECEF = Quaternion.fromRotationMatrix(DCM_ECI_ECEF!);
         const q_ECEF_ECI = Quaternion.conjugate(q_ECI_ECEF, new Quaternion());
         const q_B_ECEF = Quaternion.multiply(q_ECEF_ECI, q_B_ECI, new Quaternion());
 
@@ -243,6 +245,7 @@ export const SatelliteVisualizer: React.FC<Props> = ({
           height: ${height}px;
         `
       )}
+      data-testid={TEST_IDS.PANEL}
     >
       <Viewer
         full

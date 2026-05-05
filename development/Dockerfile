@@ -1,4 +1,4 @@
-ARG NODE_VERSION="20"
+ARG NODE_VERSION="22"
 
 FROM mcr.microsoft.com/vscode/devcontainers/typescript-node:${NODE_VERSION}-bullseye
 

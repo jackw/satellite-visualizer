@@ -1,0 +1,173 @@
+{
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": {
+          "type": "grafana",
+          "uid": "-- Grafana --"
+        },
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "target": {
+          "limit": 100,
+          "matchAny": false,
+          "tags": [],
+          "type": "dashboard"
+        },
+        "type": "dashboard"
+      }
+    ]
+  },
+  "editable": true,
+  "fiscalYearStartMonth": 0,
+  "graphTooltip": 1,
+  "links": [],
+  "panels": [
+    {
+      "datasource": {
+        "type": "grafana-testdata-datasource",
+        "uid": "P53465F745837BCFD"
+      },
+      "description": "3D model mode — duck glTF asset following a realistic LEO ground track",
+      "fieldConfig": {
+        "defaults": {},
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 15,
+        "w": 12,
+        "x": 0,
+        "y": 0
+      },
+      "id": 1,
+      "options": {
+        "accessToken": "",
+        "assetMode": "Model",
+        "baseLayerPicker": true,
+        "coordinatesType": "Geodetic",
+        "locationPointColor": "white",
+        "locationPointSize": 10,
+        "locations": [],
+        "modelAssetId": 0,
+        "modelAssetUri": "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Models/master/2.0/Duck/glTF-Binary/Duck.glb",
+        "modelMaximumScale": 20000,
+        "modelMinimumPixelSize": 128,
+        "modelScale": 1,
+        "pointColor": "red",
+        "pointSize": 30,
+        "projectionPicker": false,
+        "sceneModePicker": false,
+        "seriesCountSize": "sm",
+        "showAnimation": false,
+        "showBaseLayerPicker": false,
+        "showCredits": false,
+        "showInfoBox": false,
+        "showProjectionPicker": false,
+        "showSceneModePicker": false,
+        "showTimeline": false,
+        "subscribeToDataHoverEvent": true,
+        "trajectoryColor": "gray",
+        "trajectoryDashLength": 16,
+        "trajectoryShow": true,
+        "trajectoryWidth": 1
+      },
+      "pluginVersion": "1.8.0",
+      "targets": [
+        {
+          "csvContent": "time,longitude,latitude,altitude,q_B_ECL_X,q_B_ECLLy,q_B_ECI_Z,q_B_ECI_S\n1703832558000,-170.0,-63.0,519772,0.607,0.281,0.667,0.328\n1703832588000,-167.8,-61.7,519751,0.609,0.282,0.664,0.329\n1703832618000,-165.6,-60.4,519730,0.611,0.283,0.661,0.330\n1703832648000,-163.4,-59.1,519709,0.613,0.284,0.658,0.331\n1703832678000,-161.2,-57.7,519688,0.615,0.285,0.655,0.332\n1703832708000,-159.0,-56.4,519667,0.617,0.286,0.652,0.333\n1703832738000,-156.8,-55.1,519646,0.619,0.287,0.649,0.334\n1703832768000,-154.6,-53.8,519625,0.621,0.288,0.646,0.335\n1703832798000,-152.4,-52.5,519604,0.623,0.289,0.643,0.336\n1703832828000,-150.2,-51.2,519583,0.625,0.290,0.640,0.337\n1703832858000,-148.0,-49.8,519562,0.627,0.291,0.637,0.338\n1703832888000,-145.8,-48.5,519541,0.629,0.292,0.634,0.339\n1703832918000,-143.6,-47.2,519520,0.631,0.293,0.631,0.340\n1703832948000,-141.4,-45.9,519499,0.633,0.294,0.628,0.341\n1703832978000,-139.2,-44.6,519478,0.635,0.295,0.625,0.342\n1703833008000,-137.0,-43.3,519457,0.637,0.296,0.622,0.343\n1703833038000,-134.8,-41.9,519436,0.639,0.297,0.619,0.344\n1703833068000,-132.6,-40.6,519415,0.641,0.298,0.616,0.345\n1703833098000,-130.4,-39.3,519394,0.643,0.299,0.613,0.346\n1703833128000,-128.2,-38.0,519373,0.645,0.300,0.610,0.347",
+          "datasource": {
+            "type": "grafana-testdata-datasource",
+            "uid": "P53465F745837BCFD"
+          },
+          "refId": "A",
+          "scenarioId": "csv_content"
+        }
+      ],
+      "title": "Satellite-1 (Model)",
+      "type": "lucasbremond-satellitevisualizer-panel"
+    },
+    {
+      "datasource": {
+        "type": "grafana-testdata-datasource",
+        "uid": "P53465F745837BCFD"
+      },
+      "description": "Point mode — a second satellite on a crossing orbit (opposite ground track direction)",
+      "fieldConfig": {
+        "defaults": {},
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 15,
+        "w": 12,
+        "x": 12,
+        "y": 0
+      },
+      "id": 2,
+      "options": {
+        "accessToken": "",
+        "assetMode": "Point",
+        "baseLayerPicker": true,
+        "coordinatesType": "Geodetic",
+        "locationPointColor": "white",
+        "locationPointSize": 10,
+        "locations": [],
+        "modelAssetId": 0,
+        "modelAssetUri": "",
+        "modelMaximumScale": 20000,
+        "modelMinimumPixelSize": 128,
+        "modelScale": 0,
+        "pointColor": "cyan",
+        "pointSize": 20,
+        "projectionPicker": false,
+        "sceneModePicker": false,
+        "seriesCountSize": "sm",
+        "showAnimation": false,
+        "showBaseLayerPicker": false,
+        "showCredits": false,
+        "showInfoBox": false,
+        "showProjectionPicker": false,
+        "showSceneModePicker": false,
+        "showTimeline": false,
+        "subscribeToDataHoverEvent": true,
+        "trajectoryColor": "#ff6b6bab",
+        "trajectoryDashLength": 10,
+        "trajectoryShow": true,
+        "trajectoryWidth": 2
+      },
+      "pluginVersion": "1.8.0",
+      "targets": [
+        {
+          "csvContent": "time,longitude,latitude,altitude,q_B_ECL_X,q_B_ECLLy,q_B_ECI_Z,q_B_ECI_S\n1703832558000,20.0,55.0,540100,0.500,0.500,0.500,0.500\n1703832588000,17.8,53.7,540089,0.501,0.499,0.501,0.499\n1703832618000,15.6,52.4,540078,0.502,0.498,0.502,0.498\n1703832648000,13.4,51.1,540067,0.503,0.497,0.503,0.497\n1703832678000,11.2,49.7,540056,0.504,0.496,0.504,0.496\n1703832708000,9.0,48.4,540045,0.505,0.495,0.505,0.495\n1703832738000,6.8,47.1,540034,0.506,0.494,0.506,0.494\n1703832768000,4.6,45.8,540023,0.507,0.493,0.507,0.493\n1703832798000,2.4,44.5,540012,0.508,0.492,0.508,0.492\n1703832828000,0.2,43.2,540001,0.509,0.491,0.509,0.491\n1703832858000,-2.0,41.8,539990,0.510,0.490,0.510,0.490\n1703832888000,-4.2,40.5,539979,0.511,0.489,0.511,0.489\n1703832918000,-6.4,39.2,539968,0.512,0.488,0.512,0.488\n1703832948000,-8.6,37.9,539957,0.513,0.487,0.513,0.487\n1703832978000,-10.8,36.6,539946,0.514,0.486,0.514,0.486\n1703833008000,-13.0,35.3,539935,0.515,0.485,0.515,0.485\n1703833038000,-15.2,33.9,539924,0.516,0.484,0.516,0.484\n1703833068000,-17.4,32.6,539913,0.517,0.483,0.517,0.483\n1703833098000,-19.6,31.3,539902,0.518,0.482,0.518,0.482\n1703833128000,-21.8,30.0,539891,0.519,0.481,0.519,0.481",
+          "datasource": {
+            "type": "grafana-testdata-datasource",
+            "uid": "P53465F745837BCFD"
+          },
+          "refId": "A",
+          "scenarioId": "csv_content"
+        }
+      ],
+      "title": "Satellite-2 (Point)",
+      "type": "lucasbremond-satellitevisualizer-panel"
+    }
+  ],
+  "preload": false,
+  "refresh": "",
+  "schemaVersion": 42,
+  "tags": [],
+  "templating": {
+    "list": []
+  },
+  "time": {
+    "from": "2023-12-29T07:49:18.000Z",
+    "to": "2023-12-29T07:59:00.000Z"
+  },
+  "timepicker": {},
+  "timezone": "utc",
+  "title": "Satellite Visualizer Test Data",
+  "uid": "gnh6bt",
+  "version": 1,
+  "weekStart": ""
+}
