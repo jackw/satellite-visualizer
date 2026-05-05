@@ -21,6 +21,7 @@ import {
   Cartesian2,
   Matrix3,
 } from 'cesium';
+import { TEST_IDS } from '../constants';
 
 declare const CESIUM_BASE_URL: string;
 
@@ -244,6 +245,7 @@ export const SatelliteVisualizer: React.FC<Props> = ({
           height: ${height}px;
         `
       )}
+      data-testid={TEST_IDS.PANEL}
     >
       <Viewer
         full
