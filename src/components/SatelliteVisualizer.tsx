@@ -244,6 +244,7 @@ export const SatelliteVisualizer: React.FC<Props> = ({
           height: ${height}px;
         `
       )}
+      data-testid="lucasbremond-satellitevisualizer-panel"
     >
       <Viewer
         full
